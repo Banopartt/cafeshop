@@ -1,0 +1,17 @@
+{% extends "cafe/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="detail-page">
+    <link rel="stylesheet" href="{% static 'cafe/details.css' %}">
+    <div class="image-for-detail">
+    <img src="{{ coffee.image.url }}" class="detail-img">
+    </div>
+    <div class="detail-info">
+        <h1>{{ coffee.name }}</h1>
+        <p class="price">${{ coffee.price }}</p>
+        <p>{{ coffee.description }}</p>
+    </div>
+
+</section>
+{% endblock %}

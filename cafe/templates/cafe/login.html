@@ -1,0 +1,14 @@
+{% extends 'cafe/base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="form-box">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="username">
+        <input type="password" placeholder="Password" name="password">
+        <button class="btn">Login</button>
+    </form>
+</div>
+{% endblock %}

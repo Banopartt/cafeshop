@@ -1,0 +1,50 @@
+{% extends 'cafe/base.html' %}
+{% block title %}Home{% endblock %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <link rel="stylesheet" href="{% static 'cafe/stickeranimi.css' %}">
+       <div class="sticker">
+            <h1>Brewed with Love</h1>
+            <div class="loader">
+                <div class="cup">
+                    <div class="cup-handle"></div>
+                    <div class="smoke one"></div>
+                    <div class="smoke two"></div>
+                    <div class="smoke three"></div>
+                </div>
+                <div class="load">........................</div>
+            </div>
+        </div>
+
+        
+        
+        <p>Experience the finest coffee with a modern twist. Taste the extraordinary.</p>
+            <a href="/cafe/" class="btn">Explore Our Menu</a>
+
+        <section class="slider-section">
+        <div class="slider-track">
+            {% for coffee in coffees %}
+            <div class="slide-card">
+                <img src="{{ coffee.image.url }}" alt="{{ coffee.name }}">
+                <h3>{{ coffee.name }}</h3>
+                <a href="{% url 'details' coffee.id %}" class="btn">View Details</a>
+            </div>
+            {% endfor %}
+
+            {# duplicate items for infinite loop #}
+            {% for coffee in coffees %}
+            <div class="slide-card">
+                <img src="{{ coffee.image.url }}" alt="{{ coffee.name }}">
+                <h3>{{ coffee.name }}</h3>
+                <a href="{% url 'details' coffee.id %}" class="btn">View Details</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+</section>
+
+<script src="{% static 'cafe/slider.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'cafe/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="menu-section">
+    <link rel="stylesheet" href="{% static 'cafe/menu.css' %}">
+    <div class="menu-grid">
+        {% for coffee in coffees %}
+        <div class="menu-card">
+            <div class="card-image">
+                <img src="{{ coffee.image.url }}" alt="{{ coffee.name }}">
+            </div>
+            <div class="card-content">
+                <h3>{{ coffee.name }}</h3>
+                <p class="price">${{ coffee.price }}</p>
+                <a href="{% url 'details' coffee.id %}" class="btn">View Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
