@@ -23,25 +23,25 @@
             <a href="/cafe/" class="btn">Explore Our Menu</a>
 
         <section class="slider-section">
-        <div class="slider-track">
-            {% for coffee in coffees %}
-            <div class="slide-card">
-                <img src="{{ coffee.image.url }}" alt="{{ coffee.name }}">
-                <h3>{{ coffee.name }}</h3>
-                <a href="{% url 'details' coffee.id %}" class="btn">View Details</a>
-            </div>
-            {% endfor %}
+            <div class="slider-track">
+                {% for coffee in coffees %}
+                <div class="slide-card">
+                    <img src="{{ coffee.image.url }}" alt="{{ coffee.name }}">
+                    <h3>{{ coffee.name }}</h3>
+                    <a href="{% url 'details' coffee.id %}" class="btn">View Details</a>
+                </div>
+                {% endfor %}
 
-            {# duplicate items for infinite loop #}
-            {% for coffee in coffees %}
-            <div class="slide-card">
-                <img src="{{ coffee.image.url }}" alt="{{ coffee.name }}">
-                <h3>{{ coffee.name }}</h3>
-                <a href="{% url 'details' coffee.id %}" class="btn">View Details</a>
+                {# duplicate items for infinite loop #}
+                {% for coffee in coffees %}
+                <div class="slide-card">
+                    <img src="{{ coffee.image.url }}" alt="{{ coffee.name }}">
+                    <h3>{{ coffee.name }}</h3>
+                    <a href="{% url 'details' coffee.id %}" class="btn">View Details</a>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
-    </section>
+        </section>
 
 
 </section>
